@@ -1,6 +1,6 @@
 'use strict';
 
-// v1.0
+// v2.0 (Refactored)
 //DOM: Document Object Model is a connection between HTML documents and JavaScript code. It allows JavaScript to access and manipulate HTML elements and styles.
 
 console.log(document.querySelector('.message').textContent);
@@ -19,6 +19,21 @@ let guess_num = Math.floor(Math.random() * 20 + 1);
 let highscore = 0;
 let score = 20;
 
+// This function updates messages.
+const updateMessage = function (destination, message) {
+  document.querySelector(destination).textContent = message;
+}
+
+// This function updates the background.
+const updateBackground = function (destination, color) {
+  document.querySelector(destination).style.backgroundImage = color;
+}
+
+// This function updates width of the 'guess_num' container
+const updateWidth = function (destination, inputwidth) {
+  document.querySelector(destination).style.width = inputwidth;
+}
+
 // Handling click events.
 // Adding an eventListener to the 'check' box.
 document.querySelector('.check').addEventListener('click', function () {
@@ -28,67 +43,43 @@ document.querySelector('.check').addEventListener('click', function () {
   
 //   If player does not enter their guess number.
   if (!player_guess) {
-    document.querySelector('.message').textContent = '🚫 No number!';
+    updateMessage('.message', '🚫 No number!');
     // Changes the background.
-    document.querySelector('body').style.backgroundImage = 'linear-gradient(to right, #870000, #190a05)';
+    updateBackground('body', 'linear-gradient(to right, #870000, #190a05)');
 
     // If player guess is right.
   } else if (player_guess === guess_num) {
     // Updates the message.
-    document.querySelector('.message').textContent = '🎉 Correct Number!';
+    updateMessage('.message', '🎉 Correct Number!');
     // Changes the background.
-    document.querySelector('body').style.backgroundImage = 'linear-gradient(to right, #6a9113, #141517)';
+    updateBackground('body', 'linear-gradient(to right, #6a9113, #141517)');
     // Reveals the number that was to be guessed.
-    document.querySelector('.number').textContent = guess_num;
+    updateMessage('.number', guess_num);
     // Makes the container of revealed number bigger.
-    document.querySelector('.number').style.width = '25rem';
+    updateWidth('.number', '25rem');
     //Manages the highscore in game.
     if (score > highscore) {
       highscore = score;
-      document.querySelector('.highscore').textContent = highscore;
+      // Updates the highscore
+      updateMessage('.highscore', highscore);
   }
 
-    // When player guess is too high.
-  } else if (player_guess > guess_num) {
-    // Checks if player lost the game or not.
+  // When player guess is incorrect
+  } else if (player_guess !== guess_num) {
     if (score > 0) {
-      // Updates the message.
-      document.querySelector('.message').textContent = '⬆️ Too high!';
+      document.querySelector('.message').textContent = player_guess > guess_num ? '⬆️ Too high!' : '⬇️ Too low!';
+      document.querySelector('body').style.backgroundImage = player_guess > guess_num ? 'linear-gradient(to right, #ba8b02, #181818)' : 'linear-gradient(to right, #8e0e00, #1f1c18)';
       // Decrements the score by 1.
       score--;
-      document.querySelector('.score').textContent = score;
-      document.querySelector('body').style.backgroundImage = 'linear-gradient(to right, #ba8b02, #181818)';
-      
-    //   If score is 0 then player lost the game.
+      // Updates the score.
+      updateMessage('.score', score);
     } else {
       // Updates the message.
-      document.querySelector('.message').textContent = '😢 You lost the game!';
+      updateMessage('.message', '😢 You lost the game!');
       // Updates the score.
       document.querySelector('.score') = '0';
       // Changes the background.
-      document.querySelector('body').style.backgroundImage = 'linear-gradient(to right, #870000, #190a05)';
-    }
-    // When player guess too low
-  } else if (player_guess < guess_num) {
-    // Checks if player lost the game or not
-    if (score > 0) {
-      // Updates the message.
-      document.querySelector('.message').textContent = '⬇️ Too low!';
-      // Decrements the score by 1.
-      score--;
-      // Updates the score output.
-      document.querySelector('.score').textContent = score;
-      // Changes the background.
-      document.querySelector('body').style.backgroundImage = 'linear-gradient(to right, #8e0e00, #1f1c18)';
-
-    //   If score reaches 0.
-    } else {
-      // Updates the message.
-      document.querySelector('.message').textContent = '😢 You lost the game!';
-      // Updates the score.
-      document.querySelector('.score') = '0';
-      // Changes the background.
-      document.querySelector('body').style.backgroundImage = 'linear-gradient(to right, #870000, #190a05)';
+      updateBackground('body', 'linear-gradient(to right, #870000, #190a05)');
     }
   }
 });
@@ -96,18 +87,19 @@ document.querySelector('.check').addEventListener('click', function () {
 // Resetting the game.
 document.querySelector('.again').addEventListener('click', function () {
   // Changes the background.
-  document.querySelector('body').style.backgroundImage = 'linear-gradient(90deg, #2c5364, #203a43, #0f2027)';
-  // Generates another random number as the new guess.
+  updateBackground('body', 'linear-gradient(90deg, #2c5364, #203a43, #0f2027)');
+  // Generates another random number between 1 and 20. Then stores it in 'guess_num' variable.
   guess_num = Math.floor(Math.random() * 20 + 1);
   // Resets the score.
   score = 20;
   // Resets the number box from previous game.
-  document.querySelector('.number').textContent = '?';
-  document.querySelector('.number').style.width = '15rem';
+  updateMessage('.number', '?');
+  // Resets the container width
+  updateWidth('.number', '15rem');
   // Resets the score output.
-  document.querySelector('.score').textContent = score;
+  updateMessage('.score', score);
   // Resets the message.
-  document.querySelector('.message').textContent = 'Start guessing...';
+  updateMessage('.message', 'Start guessing...');
   // Resets the input box value.
   document.querySelector('.number').value = ' ';
 });
