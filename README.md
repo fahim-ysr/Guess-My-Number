@@ -1,6 +1,6 @@
 # Guess My Number
 
-***"Guess My Number" game is an interactive web-based application where the player tries to guess a randomly generated number between 1 and 20. The game provides feedback on whether the player's guess is too high, too low, or correct. The player can also reset the game to start over. The game keeps track of the player's current score and high score.***
+**"Guess My Number" game is an interactive web-based application where the player tries to guess a randomly generated number between 1 and 20. The game provides feedback on whether the player's guess is too high, too low, or correct. The player can also reset the game to start over. The game keeps track of the player's current score and high score.**
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,6 +54,6 @@ This file contains the JavaScript code that powers the "Guess My Number" game. H
     - Attaches a click event listener to the "Again!" button.
     - Resets the game by generating a number resetting scores and clearing messages and numbers, on display.
 
-The structure of the code is organized effectively ensuring a separation of responsibilities, among HTML, CSS and JavaScript. The JavaScript code adheres, to standards. Employs DOM manipulation to modify the games status and offer an engaging user interaction.
+**The structure of the code is organized effectively ensuring a separation of responsibilities, among HTML, CSS and JavaScript. The JavaScript code adheres, to standards. Employs DOM manipulation to modify the games status and offer an engaging user interaction.**
 
-The most comfortable way to preview HTML files on GitHub is to go to 'https://htmlpreview.github.io/' and then enter URL of the HTML file to preview.
+**The most comfortable way to preview HTML files on GitHub is to go to 'https://htmlpreview.github.io/' and then enter URL of the HTML file to preview.**
