@@ -58,4 +58,4 @@ This file contains the JavaScript code that powers the "Guess My Number" game. H
 
 **The structure of the code is organized effectively ensuring a separation of responsibilities, among HTML, CSS and JavaScript. The JavaScript code adheres, to standards. Employs DOM manipulation to modify the games status and offer an engaging user interaction.**
 
-**The most comfortable way to preview HTML files on GitHub is to go to 'https://htmlpreview.github.io/' and then enter URL of the HTML file to preview.**
+**Please click this link for a preview: 'https://htmlpreview.github.io/?https://github.com/fahim-ysr/Guess-My-Number/blob/main/index.html'**
