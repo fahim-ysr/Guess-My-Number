@@ -10,9 +10,11 @@
 </html>
 
 **index.html**
+
 This is the main HTML file that structures the web page for the "Guess My Number" game.
 
 **style.css**
+
 This file contains the CSS styles for the "Guess My Number" game.
 
     Imports and Resets
