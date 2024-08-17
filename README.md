@@ -4,7 +4,7 @@
 
 <br>
 
-**Please click on the thumbnail for a preview.**
+**Please click on the thumbnail for a preview. 👇**
 
 <br>
 
@@ -15,6 +15,7 @@
 **index.html**
 
 This is the main HTML file that structures the web page for the "Guess My Number" game.
+
 <br>
 
 **style.css**
@@ -60,6 +61,7 @@ This file contains the JavaScript code that powers the "Guess My Number" game. H
     - Manages the score when necessary.
     - Attaches a click event listener to the "Again!" button.
     - Resets the game by generating a number resetting scores and clearing messages and numbers, on display.
+
 <br>
 
 **The structure of the code is organized effectively ensuring a separation of responsibilities, among HTML, CSS and JavaScript. The JavaScript code adheres, to standards. Employs DOM manipulation to modify the games status and offer an engaging user interaction.**
