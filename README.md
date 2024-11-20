@@ -4,7 +4,7 @@
 
 <br>
 
-**Please click on the thumbnail for a preview. 👇**
+**Please click on the thumbnail to view the demo. 👇**
 
 <br>
 
